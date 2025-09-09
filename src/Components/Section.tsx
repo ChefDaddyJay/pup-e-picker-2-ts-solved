@@ -9,7 +9,7 @@ export const Section = ({
   children: ReactNode;
 }) => {
   const { activeTab, setActiveTab } = useTabs();
-  const { dogs } = useDogs();
+  const { allDogs: dogs } = useDogs();
   const favorited = dogs.reduce(
     (count, dog) => (dog.isFavorite ? count + 1 : count),
     0

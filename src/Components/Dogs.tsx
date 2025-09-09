@@ -3,22 +3,22 @@ import { Dog } from "../types";
 import { DogCard } from "./DogCard";
 
 export const Dogs = () => {
-  const { dogs, updateDogs } = useDogs();
+  const { allDogs, updateDogs } = useDogs();
   const { activeTab } = useTabs();
 
-  const getFavorited = () => dogs.filter((dog) => dog.isFavorite);
-  const getUnfavorited = () => dogs.filter((dog) => !dog.isFavorite);
+  const getFavorited = () => allDogs.filter((dog) => dog.isFavorite);
+  const getUnfavorited = () => allDogs.filter((dog) => !dog.isFavorite);
 
   const setFavorite = (newDog: Dog, isFavorite: boolean) => {
     updateDogs(
-      dogs.map((dog) =>
+      allDogs.map((dog) =>
         dog.id === newDog.id ? { ...dog, isFavorite: isFavorite } : dog
       )
     );
   };
 
   const deleteDog = (id: number) => {
-    updateDogs(dogs.filter((dog) => dog.id !== id));
+    updateDogs(allDogs.filter((dog) => dog.id !== id));
   };
 
   const display = (dogs: Dog[]) =>
@@ -35,7 +35,7 @@ export const Dogs = () => {
 
   return (
     <>
-      {activeTab === 0 && display(dogs)}
+      {activeTab === 0 && display(allDogs)}
       {activeTab === 1 && display(getFavorited())}
       {activeTab === 2 && display(getUnfavorited())}
     </>

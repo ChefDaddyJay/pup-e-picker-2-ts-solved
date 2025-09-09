@@ -60,7 +60,7 @@ export const DogsProvider = ({ children }: { children: ReactNode }) => {
   return (
     <DogsContext.Provider
       value={{
-        dogs: dogsState,
+        allDogs: dogsState,
         updateDogs,
         refresh,
         isLoading: isLoading,

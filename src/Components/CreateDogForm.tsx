@@ -18,7 +18,7 @@ const EMPTY_INPUT = {
 
 export const CreateDogForm = () => {
   const [input, setInput] = useState<InputState>(EMPTY_INPUT);
-  const { dogs, updateDogs, isLoading, setLoading } = useDogs();
+  const { allDogs, updateDogs, isLoading, setLoading } = useDogs();
 
   return (
     <form
@@ -36,7 +36,7 @@ export const CreateDogForm = () => {
           isFavorite: false,
         };
         Requests.postDog(dog)
-          .then(() => updateDogs([...dogs, dog]))
+          .then(() => updateDogs([...allDogs, dog]))
           .finally(() => setInput(EMPTY_INPUT));
       }}
     >

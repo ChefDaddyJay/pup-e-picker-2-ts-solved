@@ -12,7 +12,7 @@ export const dogSchema = z.object({
 export type Dog = z.infer<typeof dogSchema>;
 
 export type TDogsContext = {
-  dogs: Dog[];
+  allDogs: Dog[];
   updateDogs: (dogs: Dog[]) => void;
   refresh: () => void;
   isLoading: boolean;

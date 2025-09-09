@@ -1,66 +1,143 @@
 {
   "dogs": [
     {
-      "name": "Franco",
+      "name": "Kianna",
+      "image": "/assets/boxer.png",
+      "description": "Soul Non Health inhabitant Handcrafted overriding choir mechanically",
+      "isFavorite": true,
+      "id": 0
+    },
+    {
+      "name": "Quinton",
+      "image": "/assets/blue-heeler.png",
+      "description": "once Northeast Yemeni olive Southeast transmitting Account",
+      "isFavorite": false,
+      "id": 1
+    },
+    {
+      "name": "Enos",
+      "image": "/assets/blue-heeler.png",
+      "description": "disastrous joule redefine whose Cambridgeshire",
+      "isFavorite": true,
+      "id": 2
+    },
+    {
+      "name": "Kristy",
+      "image": "/assets/dalmation.png",
+      "description": "after optical Kuwait black Minivan",
+      "isFavorite": false,
+      "id": 3
+    },
+    {
+      "name": "Brittany",
       "image": "/assets/cowardly.png",
-      "description": "Clothing kiddingly candela tesla Sharable",
+      "description": "Mini withdrawal gadzooks female Division",
+      "isFavorite": false,
+      "id": 4
+    },
+    {
+      "name": "Stacy",
+      "image": "/assets/corgi.png",
+      "description": "seriously City protocol North payment deposit South Strategist",
+      "isFavorite": true,
+      "id": 5
+    },
+    {
+      "name": "Anne",
+      "image": "/assets/dalmation.png",
+      "description": "payment East Shoes reintermediate synthesizing",
+      "isFavorite": true,
+      "id": 6
+    },
+    {
+      "name": "Colt",
+      "image": "/assets/blue-heeler.png",
+      "description": "Account Representative Meitnerium Electric Lutetium Diesel female",
+      "isFavorite": false,
+      "id": 7
+    },
+    {
+      "name": "Gavin",
+      "image": "/assets/blue-heeler.png",
+      "description": "calculate B2B Convertible overriding mindshare Gasoline female grey",
+      "isFavorite": false,
+      "id": 8
+    },
+    {
+      "name": "Oleta",
+      "image": "/assets/blue-heeler.png",
+      "description": "brr meh Niobium strategic Convertible Rap white",
       "isFavorite": true,
       "id": 9
     },
     {
-      "name": "Elsa",
-      "image": "/assets/cowardly.png",
-      "description": "fortune Towels index Cadmium voluptas copying Progressive alarm",
+      "name": "May",
+      "image": "/assets/dalmation.png",
+      "description": "Fresh Tandem Lutetium optical Mini Copper lux",
       "isFavorite": false,
+      "id": 10
+    },
+    {
+      "name": "Annie",
+      "image": "/assets/corgi.png",
+      "description": "Wooden West rich Rahul juicy North Shoes algorithm",
+      "isFavorite": false,
+      "id": 11
+    },
+    {
+      "name": "Brad",
+      "image": "/assets/dalmation.png",
+      "description": "Porsche assumenda Sol Intranet Producer hence expedite",
+      "isFavorite": true,
       "id": 12
     },
     {
-      "name": "Shanie",
-      "image": "/assets/corgi.png",
-      "description": "Freeway candela Hop Funk Bohrium",
+      "name": "Ayden",
+      "image": "/assets/blue-heeler.png",
+      "description": "Communications monitor alliance calculate Beryllium unequaled Connecticut Fantastic",
       "isFavorite": false,
       "id": 13
     },
     {
-      "name": "Coby",
-      "image": "/assets/chihuahua.avif",
-      "description": "Gasoline hack Jewelery architectures scan ew background Kuwait",
-      "isFavorite": false,
+      "name": "Natalia",
+      "image": "/assets/corgi.png",
+      "description": "Beauty Northwest reciprocal facilitate Avon",
+      "isFavorite": true,
       "id": 14
     },
     {
-      "name": "Keegan",
-      "image": "/assets/cowardly.png",
-      "description": "Mississippi virtual matrix Ouguiya Bronze Hybrid withdrawal BMW",
+      "name": "Ali",
+      "image": "/assets/dalmation.png",
+      "description": "Elegant nor architect Evert quantify Dodge Convertible",
       "isFavorite": false,
       "id": 15
     },
     {
-      "name": "Aurelie",
-      "image": "/assets/blue-heeler.png",
-      "description": "East Table SSL Configuration THX geez empty",
+      "name": "Camilla",
+      "image": "/assets/chihuahua.avif",
+      "description": "Account ouch azure Loan Delaware",
       "isFavorite": true,
       "id": 16
     },
     {
-      "name": "George",
+      "name": "Ardith",
       "image": "/assets/corgi.png",
-      "description": "flunk Granite connect rerum maroon",
-      "isFavorite": false,
+      "description": "Katelin Bauch butter access Chips",
+      "isFavorite": true,
       "id": 17
     },
     {
-      "name": "Brice",
-      "image": "/assets/dalmation.png",
-      "description": "Elegant gold logistical Promethium FTP Reggae red",
+      "name": "Winifred",
+      "image": "/assets/boxer.png",
+      "description": "structure Cadillac blanditiis Cyclocross Gasoline",
       "isFavorite": true,
       "id": 18
     },
     {
-      "name": "Daphne",
-      "image": "/assets/cowardly.png",
-      "description": "seamless Hassium Bacon analyzing hm watt Buckinghamshire",
-      "isFavorite": true,
+      "name": "Emie",
+      "image": "/assets/corgi.png",
+      "description": "shabby Northeast Representative arrest Senior after Wisconsin",
+      "isFavorite": false,
       "id": 19
     }
   ]
