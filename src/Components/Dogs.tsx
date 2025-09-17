@@ -1,18 +1,15 @@
+import { Dog } from "../Dog";
 import { useDogs, useTabs } from "../Providers/definitions";
-import { Dog } from "../types";
 import { DogCard } from "./DogCard";
 
 export const Dogs = () => {
   const { allDogs, updateDogs } = useDogs();
-  const { activeTab } = useTabs();
-
-  const getFavorited = () => allDogs.filter((dog) => dog.isFavorite);
-  const getUnfavorited = () => allDogs.filter((dog) => !dog.isFavorite);
+  const { tabs, activeTab } = useTabs();
 
   const setFavorite = (newDog: Dog, isFavorite: boolean) => {
     updateDogs(
       allDogs.map((dog) =>
-        dog.id === newDog.id ? { ...dog, isFavorite: isFavorite } : dog
+        dog.id === newDog.id ? new Dog({ ...dog, isFavorite: isFavorite }) : dog
       )
     );
   };
@@ -35,9 +32,12 @@ export const Dogs = () => {
 
   return (
     <>
-      {activeTab === 0 && display(allDogs)}
-      {activeTab === 1 && display(getFavorited())}
-      {activeTab === 2 && display(getUnfavorited())}
+      {Object.entries(tabs).map(
+        ([key, tab]) =>
+          activeTab === key &&
+          tab.content instanceof Array &&
+          display(tab.content)
+      )}
     </>
   );
 };

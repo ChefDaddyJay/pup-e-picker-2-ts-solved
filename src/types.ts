@@ -1,30 +1,38 @@
 import { ReactNode } from "react";
-import { z } from "zod";
+import { Dog } from "./Dog";
 
-export const dogSchema = z.object({
-  id: z.number(),
-  name: z.string(),
-  image: z.string(),
-  description: z.string(),
-  isFavorite: z.boolean(),
-});
-
-export type Dog = z.infer<typeof dogSchema>;
+/* DOGS */
 
 export type TDogsContext = {
   allDogs: Dog[];
   updateDogs: (dogs: Dog[]) => void;
-  refresh: () => void;
   isLoading: boolean;
   setLoading: (loading: boolean) => void;
+  handleError: (message: string) => void;
 };
 
-export type Tab = {
-  label: string;
-  content: ReactNode;
+export type TDogInputState = {
+  name: string;
+  description: string;
+  image: string;
+};
+
+export type TDogInputStateContext = {
+  input: TDogInputState;
+  setInput: (input: TDogInputState) => void;
+};
+
+/* TABS */
+
+export type TTabKey = "favorited" | "unfavorited" | "create a dog" | "";
+
+export type TTab = {
+  label: string | null;
+  content: Dog[] | ReactNode;
 };
 
 export type TTabContext = {
-  activeTab: number;
-  setActiveTab: (tab: number) => void;
+  tabs: Record<TTabKey, TTab>;
+  activeTab: TTabKey;
+  setActiveTab: (tab: TTabKey) => void;
 };

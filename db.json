@@ -15,38 +15,31 @@
       "id": 1
     },
     {
-      "name": "Enos",
-      "image": "/assets/blue-heeler.png",
-      "description": "disastrous joule redefine whose Cambridgeshire",
-      "isFavorite": true,
-      "id": 2
-    },
-    {
       "name": "Kristy",
       "image": "/assets/dalmation.png",
       "description": "after optical Kuwait black Minivan",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 3
     },
     {
       "name": "Brittany",
       "image": "/assets/cowardly.png",
       "description": "Mini withdrawal gadzooks female Division",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 4
     },
     {
       "name": "Stacy",
       "image": "/assets/corgi.png",
       "description": "seriously City protocol North payment deposit South Strategist",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 5
     },
     {
       "name": "Anne",
       "image": "/assets/dalmation.png",
       "description": "payment East Shoes reintermediate synthesizing",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 6
     },
     {
@@ -139,6 +132,27 @@
       "description": "shabby Northeast Representative arrest Senior after Wisconsin",
       "isFavorite": false,
       "id": 19
+    },
+    {
+      "name": "Anopther",
+      "description": "aergaeth",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": true,
+      "id": 21
+    },
+    {
+      "name": "drv",
+      "description": "aserv",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 22
+    },
+    {
+      "name": "srthn",
+      "description": "mym",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 23
     }
   ]
 }

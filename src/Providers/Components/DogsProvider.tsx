@@ -1,70 +1,94 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { Dog } from "../../types";
 import { Requests } from "../../api";
 import toast from "react-hot-toast";
 import { DogsContext } from "../definitions";
+import { Dog, TDogData, EMPTY_DOG } from "../../Dog";
 
 export const DogsProvider = ({ children }: { children: ReactNode }) => {
-  const [dogsState, setDogsState] = useState<Dog[]>([]);
+  const [dogsState, setDogsState] = useState<Dog[]>([EMPTY_DOG]);
   const [isLoading, setLoading] = useState(false);
   const latestRefresh = useRef(0);
 
-  const refresh = () => {
+  const refetchDogs = async () => {
     const ref = ++latestRefresh.current;
 
-    Requests.getAllDogs()
-      .then((dogs) => ref === latestRefresh.current && setDogsState(dogs!))
-      .finally(() => setLoading(false));
+    try {
+      const response = await Requests.getAllDogs();
+      const dogs: Dog[] = response
+        ? response.map((dog: TDogData) => new Dog(dog))
+        : [EMPTY_DOG];
+
+      return ref === latestRefresh.current && dogs;
+    } catch (error) {
+      throw new Error("Failed to fetch dogs.");
+    }
   };
 
-  const compareDogs = (dogA: Dog, dogB: Dog) => {
-    const dogAValues = Object.values(dogA);
-    const dogBValues = Object.values(dogB);
-    const comparison = dogAValues.map(
-      (value, index) => value === dogBValues[index]
-    );
+  const handleError = (message: string) => {
+    toast.error(message);
+    setDogsState([...dogsState]);
+    setLoading(false);
+  };
 
-    return comparison.includes(false);
+  const refresh = () => {
+    refetchDogs()
+      .then((dogs) => {
+        dogs && setDogsState(dogs);
+        setLoading(false);
+      })
+      .catch(() => handleError("Failed to retrieve dogs. Please try again."));
   };
 
   const deleteDog = (dogs: Dog[]) => {
     const dogIds = dogs.map((dog) => dog.id);
     const missingId = dogsState.filter((dog) => !dogIds.includes(dog.id))[0].id;
-    Requests.deleteDog(missingId).then(
-      (response) => (response?.ok ? refresh() : Promise.reject()),
-      () => toast.error(`Failed to delete dog #${missingId}`)
-    );
+    return Requests.deleteDog(missingId);
   };
 
   const updateDogs = (dogs: Dog[]) => {
-    setDogsState(dogs);
+    setDogsState(dogs ? dogs : []);
 
     if (dogs.length > dogsState.length) {
+      // A dog has been added
       refresh();
     } else if (dogs.length < dogsState.length) {
-      deleteDog(dogs);
+      // A dog had been removed
+      deleteDog(dogs)
+        .then(() => refresh())
+        .catch(() => handleError("Failed to delete dog. Please try again."));
     } else {
+      // A dog has been changed
       dogs.forEach((dog, index) => {
-        if (dogsState[index] && compareDogs(dog, dogsState[index])) {
-          Requests.updateDog(dog).then(
-            (response) => response?.ok && refresh(),
-            () => toast.error(`Update failed`)
-          );
+        if (!dog.equals(dogsState[index])) {
+          Requests.updateDog(dog)
+            .then(() => refresh())
+            .catch(() =>
+              handleError(`Failed to update dog. Please try again."`)
+            );
         }
       });
     }
   };
 
-  useEffect(refresh, []);
+  useEffect(() => {
+    Requests.getAllDogs()
+      .then((response) => {
+        const dogs: Dog[] = response
+          ? response.map((dog: TDogData) => new Dog(dog))
+          : [EMPTY_DOG];
+        setDogsState(dogs);
+      })
+      .catch(() => toast.error("Failed to retrieve dogs."));
+  }, []);
 
   return (
     <DogsContext.Provider
       value={{
         allDogs: dogsState,
         updateDogs,
-        refresh,
-        isLoading: isLoading,
-        setLoading: setLoading,
+        isLoading,
+        setLoading,
+        handleError,
       }}
     >
       {children}
